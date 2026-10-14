@@ -58,4 +58,22 @@ function bad(id,s){document.getElementById(id).style.display=s?'block':'none';}
 function valid(){var ok=true;var n=document.getElementById('n').value.trim();var t=document.getElementById('t').value.replace(/\D/g,'');var d=document.getElementById('dep').value;var c=document.getElementById('ciu').value.trim();var a=document.getElementById('dir').value.trim();bad('e-n',n.length<3);if(n.length<3)ok=false;bad('e-t',t.length<10);if(t.length<10)ok=false;bad('e-d',!d);if(!d)ok=false;bad('e-c',c.length<2);bad('e-a',a.length<5);return ok&&c.length>1&&a.length>4;}
 function maint(){document.getElementById('maint').style.display='flex';}
 function pay(mode){if(!valid()){scrollTo(0,0);return;}var d={mode:mode,product:q.get('p')||'Tenis',name:document.getElementById('n').value,phone:document.getElementById('t').value,addr:document.getElementById('dir').value+' '+(document.getElementById('bar').value||''),city:document.getElementById('ciu').value,total:Number(q.get('total'))||0,talla:document.getElementById('tal').value,depto:document.getElementById('dep').value,cart:[],t:new Date().toISOString()};if(mode==='credit'){location.href='https://wa.me/573169486100?text='+encodeURIComponent('Hola, quiero '+d.product+' A CRÉDITO. Soy '+d.name);return;}fetch('/api/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}).catch(function(){});document.getElementById('f').style.display='none';document.getElementById('ok').style.display='block';scrollTo(0,0);}
-</script></body></html>
+</script>
+<script>(function(){
+var KNOWN = null;
+fetch('/products/manifest.json').then(function(r){return r.json();}).then(function(j){KNOWN=j;}).catch(function(){});
+document.addEventListener('click',function(ev){
+  var a = ev.target.closest('a[href^="/products/"]');
+  if(!a||!KNOWN)return;
+  var slug = a.getAttribute('href').split('/')[2];
+  if(!slug||KNOWN.indexOf(slug)>-1)return;
+  ev.preventDefault();
+  // más parecida por prefijo de marca
+  var brand = slug.split('-')[0];
+  var same = KNOWN.filter(function(k){return k.indexOf(brand)===0;});
+  var target = (same[0]||KNOWN[0]);
+  location.href = '/products/' + target + '/';
+},true);
+})();
+</script>
+</body></html>
