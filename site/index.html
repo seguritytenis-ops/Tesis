@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><script data-source-attribution="shopify.event_observer.bootstrap">
-(function(){let e=navigator,t=`prototype`,n=`sendBeacon`,r=e[n],i=fetch,a=XMLHttpRequest[t],{open:o,send:s}=a,c=`EventListener`,l=`add${c}`,u=`remove${c}`,d=EventTarget[t],f=d[l],p=d[u],m=e=>Error((e=document.currentScript)&&[e?.src,e?.id||e?.dataset?.sourceAttribution]),h=(e=[],t=0)=>(e.p=n=>e[t++%1e3]=n,[e,t=>(e.forEach(e.p=t),e.length=0)]),[g,_]=h(),[v,y]=h(),b,x=new WeakMap,S=e=>e&&g.p([e,b||[m()]]);d[l]=function(e,t,n){let r=this,i=t?.handleEvent||t,a=x.get(t),o=m();i?.call&&!a&&x.set(t,a=function(e){b=[o,e.type];try{i.call(t==i?this:t,e)}finally{b=null}}),v.p([e,o,a,r?.tagName||r+``,r?.id]),f.call(r,e,a||t,n)},d[u]=function(e,t,n){p.call(this,e,x.get(t)||t,n)},a.open=function(e,t){x.set(this,[t+``,e]),o.apply(this,arguments)},a.send=function(e){S(x.get(this)),s.call(this,e)},fetch=(e,t)=>(S([(e?.url||e)+``,t?.method]),i(e,t)),e[n]=(t,n)=>(S([t+``,``]),r.call(e,t,n)),setTimeout(()=>import("//tenisi.co/cdn/shopifycloud/storefront/assets/storefront/event_observer_reporter-ed358274.js").then(e=>e.$(_,y,f,i,`85698085152`)))})();
-//# sourceURL=event-observer-collector.js
-</script>
-
-<script>window.registerDatadogEvent=window.registerDatadogEvent||function(){};</script>
+<head><script>window.registerDatadogEvent=window.registerDatadogEvent||function(){};</script>
 <script>
   // Guard temprano: esta plantilla usa  y nunca pasa por
   // layout/theme.liquid, asi que no recibe su guard de window.Shopify.routes.
@@ -492,7 +487,7 @@ h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;line-heig
 .wa-nav-btn:hover{background:var(--rose-soft);border-color:var(--rose-line);transform:scale(1.08)}
 .wa-nav-btn svg{width:20px;height:20px;color:var(--ink)}
 </style>
-<link rel="preload" as="script" href="//tenisi.co/cdn/shop/t/1/assets/tenisi-products-v2.js?v=89168062878108943941791889323">
+<link rel="preload" as="script" href="/tenisi-products-v2.js">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"TENISI","url":"/","logo":"https://tenisi.co/cdn/shop/files/ChatGPT_Image_24_mar_2026_12_25_33_a.m..png?v=1774330005&width=240"}
 </script>
@@ -4269,7 +4264,7 @@ html,body{overflow-x:hidden;max-width:100%}
 <!-- WHATSAPP FLOAT -->
 <a class="wa-float" href="https://wa.me/573169486100" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 6.7 12.4l-.3.4.7 2.4-2.5-.7-.4.2A8 8 0 1 1 12 4zm-3 4c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.5.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.6.8c-.1.2-.3.2-.5.1-.7-.3-1.4-.6-2.1-1.5-.5-.6-.9-1.3-1-1.5-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.3-.4-.5-.4z"/></svg></a>
 
-<script src="//tenisi.co/cdn/shop/t/1/assets/tenisi-products-v2.js?v=89168062878108943941791889323"></script>
+<script src="/tenisi-products-v2.js"></script>
 <script>
 const D=window.TENISI_DATA||{heroBrand:{},heroBanners:[],superOfertas:[],topTrends:[],groups:[]};
 /* Shopify CDN resize: pide al CDN el tamaño real que se va a mostrar (evita descargar la foto original completa) */
