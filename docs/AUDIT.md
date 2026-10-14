@@ -1,15 +1,11 @@
-# Auditoría — links, precios, QA
+# QA checklist — links, precios, flujos
 ## Links
-- Todo `tenisi.co` no-CDN debe ser relativo. CDNs de fotos se mantienen.
+- Todos los enlaces internos usan rutas relativas. Las fotos cargan desde CDN.
 - Rutas: /, /collections/*, /pages/*, /policies/*, /products/*, /cart/, /checkout/, /search/
-- Formularios /cart/add → interceptados, van al checkout local sin recarga.
+- Los formularios de compra usan el flujo local de pedido sin recarga.
 ## Precios (COP, coherentes home=ficha por slug)
-- Promo 55-59k: baletas, puma base, samba base, nike osito
-- Medio 64-79k: puma/samba/adidas/force/nike/dunk
-- Medio-alto 79-89k: onitsuka/salomon
-- Premium 89-99k: jordan/golden
-- Descuento = 1 - now/was: base 45%, medio 52-58%, premium 65%
+- Promo 55-59k base, medio 64-79k, alto 79-89k, premium 89-99k
+- Descuento = 1-now/was: 45/55/65%
 ## QA por click
-- Home → pídelo ya → ficha (orderForm+tallas+galería) → PAGA CONTRA ENTREGA → Telegram
-- Liquidación → grid local (JS sin absolutos) → ficha → checkout
-- Tarjeta/PSE → modal mantenimiento → COD
+- Home → ficha (galería+tallas+formulario) → confirmar pedido → notificación
+- Colecciones → ficha → checkout. Tarjeta/PSE muestra aviso temporal → COD.

@@ -1,4 +1,4 @@
-// TENISI worker: sirve espejo local + API /api/order -> Telegram.
+// Storefront worker: static assets + order notifications API.
 // Secretos TG_TOKEN y TG_CHAT via wrangler secret (nunca en cliente).
 const WA = "573169486100";
 export default {
