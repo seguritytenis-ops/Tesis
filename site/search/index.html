@@ -1840,7 +1840,7 @@ function card(it){
   +'<div class="card__badge bottom left"><span class="badge badge--bottom-left" style="background:#5E2628;color:#fff">-'+it.pct+'%</span></div></div>'
   +'<div class="card__content"><div class="card__information"><h3 class="card__heading h5"><a href="/products/'+it.s+'/" class="full-unstyled-link">'+it.t+'</a></h3>'
   +'<div class="card-information"><div class="price price--on-sale"><div class="price__container"><div class="price__regular"><span class="price-item price-item--regular">'+fmt(it.p)+'</span></div><div class="price__sale"><s class="price-item price-item--regular">'+fmt(it.w)+'</s> <span class="price-item price-item--sale price-item--last">'+fmt(it.p)+'</span></div></div></div></div></div>'
-  +'<a href="/products/'+it.s+'/" class="tenisi-card-cta">Pídelo ya</a>'
+  +'<a href="/products/'+it.s+'/" class="tenisi-card-cta" style="background:#1A1A1A;color:#fff">Pídelo ya</a>'
   +'</div></div></li>';
 }
 fetch('/products/catalog.json').then(function(r){return r.json();}).then(function(cat){
@@ -4184,7 +4184,7 @@ html,body{overflow-x:hidden;max-width:100%}
         recipientFormExpanded: `Formulario del destinatario de la tarjeta de regalo expandido`,
         recipientFormCollapsed: `Formulario del destinatario de tarjeta de regalo contraído`,
       };
-    </script><script src="//tenisi.co/cdn/shop/t/1/assets/predictive-search.js?v=39392222013880479651784431833" defer="defer"></script><script
+    </script><script
 <script>
 (function(){
   var overlay=document.getElementById('hbOverlay');
