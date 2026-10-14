@@ -3836,5 +3836,68 @@ const COD_PRODUCTS=[{"t":"Zapatillas ALO Sunset","u":"/products/zapatillas-alo-s
 
 <style>  </style>
 <script src="https://cdn.shopify.com/storefront/standard-actions.js" type="module" data-source-attribution="shopify.standard_actions"></script>
+<script>(function(){
+var KEY='stepup_cart_v1';
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return[];}}
+function save(c){try{localStorage.setItem(KEY,JSON.stringify(c));}catch(e){}}
+function toCents(p){return Math.round(Number(p||0)*100);}
+function build(){
+  var items=load().map(function(it,i){
+    var qty=Math.max(0,it.qty|0);
+    return {key:String(it.id),id:it.id,quantity:qty,title:it.title,variant_title:it.variant||'',
+      product_title:it.title,image:it.img||'',price:toCents(it.price),
+      final_line_price:toCents(it.price)*qty,line_price:toCents(it.price)*qty};
+  }).filter(function(it){return it.quantity>0;});
+  var total=items.reduce(function(s,it){return s+it.final_line_price;},0);
+  var count=items.reduce(function(s,it){return s+it.quantity;},0);
+  return {item_count:count,items:items,total_price:total,items_subtotal_price:total,currency:'COP'};
+}
+function pageCtx(){
+  var title=document.title.split('·')[0].split('|')[0].split('—')[0].trim().slice(0,60)||'Tenis';
+  var price=0,img='';
+  try{if(typeof CONFIG!=='undefined'&&CONFIG.PRICE_NUM)price=Number(CONFIG.PRICE_NUM)||0;}catch(e){}
+  if(!price){var m=document.body.innerText.match(/\$\s?([\d\.]{5,7})/);if(m)price=parseInt(m[1].replace(/\./g,''),10)||0;}
+  var mi=document.querySelector('#main,.g-main img,.gallery img');
+  if(mi)img=mi.currentSrc||mi.src||'';
+  var sz='',col='';
+  var s=document.querySelector('.size.on');if(s)sz=s.dataset.size||s.innerText.trim().slice(0,40);
+  return {title:title,price:price,img:img,variant:(col?col+' ':'')+(sz||'')};
+}
+function addItem(id,qty){
+  var c=load();var f=null;
+  for(var i=0;i<c.length;i++)if(String(c[i].id)===String(id))f=c[i];
+  if(f){f.qty+=qty;}
+  else{var ctx=pageCtx();c.push({id:id,qty:qty,title:ctx.title,price:ctx.price,img:ctx.img,variant:ctx.variant});}
+  save(c);return build();
+}
+function setQty(key,qty){
+  var c=load();
+  for(var i=c.length-1;i>=0;i--)if(String(c[i].id)===String(key)){if(qty<=0)c.splice(i,1);else c[i].qty=qty;}
+  save(c);return build();
+}
+function json(d){return Promise.resolve({ok:true,json:function(){return Promise.resolve(d);}});}
+var _f=window.fetch;
+window.fetch=function(u,opt){
+  var s=String(u||'');
+  try{
+    if(s.indexOf('/cart/add.js')>-1){
+      var b={};try{b=JSON.parse((opt&&opt.body)||'{}');}catch(e){}
+      if(b.items&&b.items.length){var r=null;for(var i=0;i<b.items.length;i++)r=addItem(b.items[i].id,b.items[i].quantity||1);
+        var cart=build();var last=cart.items[cart.items.length-1]||{};
+        return json({id:last.id,quantity:last.quantity,title:last.title});}
+      addItem(b.id,b.quantity||1);
+      var c2=build();var li=c2.items[c2.items.length-1]||{id:b.id,quantity:b.quantity||1};
+      return json({id:li.id,quantity:li.quantity,title:li.title});
+    }
+    if(s.indexOf('/cart/change.js')>-1||s.indexOf('/cart/update.js')>-1){
+      var b2={};try{b2=JSON.parse((opt&&opt.body)||'{}');}catch(e){}
+      return json(setQty(b2.id,b2.quantity||0));
+    }
+    if(s.indexOf('/cart.js')>-1&&s.indexOf('/api/')<0)return json(build());
+  }catch(e){}
+  return _f.apply(this,arguments);
+};
+})();
+</script>
 </body>
 </html>
