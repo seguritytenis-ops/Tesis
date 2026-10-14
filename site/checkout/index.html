@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Finalizar pedido — TENISI</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#faf7f2}.wrap{max-width:520px;margin:14px auto;padding:0 12px 40px}.card{background:#fff;border-radius:12px;padding:18px;margin-bottom:12px}.card input,.card select{width:100%;padding:12px;margin:6px 0;border:2px solid #e0d5c8;border-radius:10px;font-size:15px}.row{display:flex;gap:10px}.row>div{flex:1}label{font-weight:700;font-size:14px}.err{color:#d32f2f;font-size:12px;display:none}.pay-bar{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:#fff;border:2px solid #e0d5c8;border-radius:12px;padding:14px;margin:8px 0;cursor:pointer;font-size:15px}.pay-bar-cod{border-color:#2e7d32;background:#f1f8e9}.badge{background:#d32f2f;color:#fff;font-size:11px;padding:1px 7px;border-radius:8px}</style></head><body>
+<div class="wrap" id="f"><div class="card"><h3>Tu pedido</h3><div id="sum"></div></div>
+<div class="card"><h3>Tus datos de envío</h3>
+<label>Nombre completo *</label><input id="n" placeholder="Ej: María García Rodríguez" maxlength="80"><span class="err" id="e-n">Escribe tu nombre</span>
+<div class="row"><div><label>Celular con WhatsApp *</label><input id="t" inputmode="tel" placeholder="320 1234567"><span class="err" id="e-t">Ingresa un celular de 10 dígitos</span></div>
+<div><label>Departamento *</label><select id="dep"><option value="">Elige</option>
+<option value="Amazonas">Amazonas</option>
+<option value="Antioquia">Antioquia</option>
+<option value="Arauca">Arauca</option>
+<option value="Atlántico">Atlántico</option>
+<option value="Bogotá D.C.">Bogotá D.C.</option>
+<option value="Bolívar">Bolívar</option>
+<option value="Boyacá">Boyacá</option>
+<option value="Caldas">Caldas</option>
+<option value="Caquetá">Caquetá</option>
+<option value="Casanare">Casanare</option>
+<option value="Cauca">Cauca</option>
+<option value="Cesar">Cesar</option>
+<option value="Chocó">Chocó</option>
+<option value="Córdoba">Córdoba</option>
+<option value="Cundinamarca">Cundinamarca</option>
+<option value="Guainía">Guainía</option>
+<option value="Guaviare">Guaviare</option>
+<option value="Huila">Huila</option>
+<option value="La Guajira">La Guajira</option>
+<option value="Magdalena">Magdalena</option>
+<option value="Meta">Meta</option>
+<option value="Nariño">Nariño</option>
+<option value="Norte de Santander">Norte de Santander</option>
+<option value="Putumayo">Putumayo</option>
+<option value="Quindío">Quindío</option>
+<option value="Risaralda">Risaralda</option>
+<option value="San Andrés y Providencia">San Andrés y Providencia</option>
+<option value="Santander">Santander</option>
+<option value="Sucre">Sucre</option>
+<option value="Tolima">Tolima</option>
+<option value="Valle del Cauca">Valle del Cauca</option>
+<option value="Vaupés">Vaupés</option>
+<option value="Vichada">Vichada</option>
+</select><span class="err" id="e-d">Elige departamento</span></div></div>
+<div class="row"><div><label>Ciudad / Municipio *</label><input id="ciu" placeholder="Ej: Envigado"><span class="err" id="e-c">Escribe tu ciudad</span></div>
+<div><label>Barrio</label><input id="bar" placeholder="Ej: El Poblado"></div></div>
+<label>Dirección exacta *</label><input id="dir" placeholder="Ej: Cra 50 #40-15 Apto 402"><span class="err" id="e-a">Escribe tu dirección</span>
+<label>Talla *</label><select id="tal"><option>35</option><option>36</option><option>37</option><option selected>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option></select></div>
+<p style="background:#fff;border:1px solid #e0d5c8;border-radius:10px;padding:12px;font-size:13px">Al hacer clic en <b style="color:#2e7d32">PAGA CONTRA ENTREGA</b> agendamos tu pedido y te escribimos por <b>WhatsApp</b> para <b>confirmarlo</b>.</p>
+<h3 style="text-align:center;margin:12px">Elige tu forma de pago</h3>
+<button class="pay-bar pay-bar-cod" onclick="pay('cod')">🛵 <span><b>PAGA CONTRA ENTREGA</b><br><small>Descuento HOT DAYS · Pagas al recibir</small></span></button>
+<button class="pay-bar" onclick="pay('prepaid')">💸 <span><b>PAGA CON CONSIGNACIÓN <span class="badge">-5% EXTRA</span></b><br><small>NEQUI · DAVIPLATA · BANCOLOMBIA</small></span></button>
+<button class="pay-bar" onclick="pay('credit')">📋 <span><b>PAGA A CRÉDITO SIN TARJETA</b><br><small>Sistecrédito, Addi, SuPay por WhatsApp</small></span></button>
+<button class="pay-bar" onclick="maint()">💳 <span><b>PAGO CON TARJETA O PSE</b><br><small>Crédito o débito · Visa, Mastercard, PSE</small></span></button>
+</div>
+<div id="maint" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:99;justify-content:center;align-items:center;padding:20px"><div style="background:#fff;border-radius:14px;padding:26px;max-width:360px;text-align:center"><h3>🔧 Pago con tarjeta no disponible por el momento</h3><p>El pago con tarjeta / PSE está en mantenimiento.<br><b style="color:#2e7d32">✅ Sigue disponible el pago contra entrega.</b></p><button onclick="document.getElementById('maint').style.display='none'" style="background:#25D366;color:#fff;border:none;padding:12px 22px;border-radius:10px;font-weight:800">ENTENDIDO</button></div></div>
+<div class="wrap" id="ok" style="display:none;text-align:center"><h2>✅ ¡Pedido agendado!</h2><p>Te escribimos por WhatsApp para confirmarlo.</p></div>
+<script>
+var q=new URLSearchParams(location.search);
+var sd=document.createElement('div');sd.textContent=(q.get('p')||'Tenis premium');document.getElementById('sum').appendChild(sd);
+function bad(id,s){document.getElementById(id).style.display=s?'block':'none';}
+function valid(){var ok=true;var n=document.getElementById('n').value.trim();var t=document.getElementById('t').value.replace(/\D/g,'');var d=document.getElementById('dep').value;var c=document.getElementById('ciu').value.trim();var a=document.getElementById('dir').value.trim();bad('e-n',n.length<3);if(n.length<3)ok=false;bad('e-t',t.length<10);if(t.length<10)ok=false;bad('e-d',!d);if(!d)ok=false;bad('e-c',c.length<2);bad('e-a',a.length<5);return ok&&c.length>1&&a.length>4;}
+function maint(){document.getElementById('maint').style.display='flex';}
+function pay(mode){if(!valid()){scrollTo(0,0);return;}var d={mode:mode,product:q.get('p')||'Tenis',name:document.getElementById('n').value,phone:document.getElementById('t').value,addr:document.getElementById('dir').value+' '+(document.getElementById('bar').value||''),city:document.getElementById('ciu').value,total:Number(q.get('total'))||0,talla:document.getElementById('tal').value,depto:document.getElementById('dep').value,cart:[],t:new Date().toISOString()};if(mode==='credit'){location.href='https://wa.me/573169486100?text='+encodeURIComponent('Hola, quiero '+d.product+' A CRÉDITO. Soy '+d.name);return;}fetch('/api/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}).catch(function(){});document.getElementById('f').style.display='none';document.getElementById('ok').style.display='block';scrollTo(0,0);}
+</script>
+<script>(function(){
+var KNOWN = null;
+fetch('/products/manifest.json').then(function(r){return r.json();}).then(function(j){KNOWN=j;}).catch(function(){});
+document.addEventListener('click',function(ev){
+  var a = ev.target.closest('a[href^="/products/"]');
+  if(!a||!KNOWN)return;
+  var slug = a.getAttribute('href').split('/')[2];
+  if(!slug||KNOWN.indexOf(slug)>-1)return;
+  ev.preventDefault();
+  // más parecida por prefijo de marca
+  var brand = slug.split('-')[0];
+  var same = KNOWN.filter(function(k){return k.indexOf(brand)===0;});
+  var target = (same[0]||KNOWN[0]);
+  location.href = '/products/' + target + '/';
+},true);
+})();
+</script>
+</body></html>
