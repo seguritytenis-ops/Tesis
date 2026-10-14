@@ -1826,7 +1826,7 @@ html,body{overflow-x:hidden;max-width:100%}
               </button>
             </div>
           </form>
-        </main-search><div id="locres" class="page-width" style="margin-top:2rem"><p id="loccount" style="color:#666;margin-bottom:1rem"></p><ul id="locgrid" class="grid product-grid grid--2-col-tablet-down grid--4-col-desktop contains-card contains-card--standard" style="list-style:none;padding:0"></ul></div>
+        </main-search><div id="locres" class="product-grid-container scroll-trigger animate--slide-in"><div class="collection page-width"><p id="loccount" style="color:#666;margin-bottom:1rem"></p><ul id="locgrid" class="grid product-grid grid--2-col-tablet-down grid--4-col-desktop contains-card contains-card--standard" style="list-style:none;padding:0"></ul></div></div>
 <script>(function(){
 var q=(new URLSearchParams(location.search).get('q')||'');
 function fmt(n){return '$'+Number(n||0).toLocaleString('es-CO');}
@@ -1836,8 +1836,8 @@ function card(it){
   return '<li class="grid__item scroll-trigger animate--slide-in"><div class="card-wrapper product-card-wrapper underline-links-hover">'
   +'<div class="card card--standard card--media" style="--ratio-percent:100%"><div class="card__inner color-background-2 gradient ratio" style="--ratio-percent:100%">'
   +'<div class="card__media"><span class="tenisi-cod-badge">🏠 <b>Contra entrega</b></span>'
-  +'<div class="media media--transparent media--hover-effect"><img srcset="'+srcset(it.img)+'" src="'+it.img+'" sizes="(min-width:1200px)267px,(min-width:990px)calc((100vw - 130px)/4),(min-width:750px)calc((100vw - 120px)/3),calc((100vw - 35px)/2)" alt="'+it.t+'" class="motion-reduce" loading="lazy"></div></div>'
-  +'<div class="card__badge bottom left"><span class="badge badge--bottom-left">-'+it.pct+'%</span></div></div>'
+  +'<div class="media media--transparent media--hover-effect"><img srcset="'+srcset(it.img)+'" src="'+it.img+'" sizes="(min-width:1200px)267px,(min-width:990px)calc((100vw - 130px)/4),(min-width:750px)calc((100vw - 120px)/3),calc((100vw - 35px)/2)" alt="'+it.t+'" class="motion-reduce" loading="lazy" width="1080" height="1350"></div></div>'
+  +'<div class="card__badge bottom left"><span class="badge badge--bottom-left" style="background:#5E2628;color:#fff">-'+it.pct+'%</span></div></div>'
   +'<div class="card__content"><div class="card__information"><h3 class="card__heading h5"><a href="/products/'+it.s+'/" class="full-unstyled-link">'+it.t+'</a></h3>'
   +'<div class="card-information"><div class="price price--on-sale"><div class="price__container"><div class="price__regular"><span class="price-item price-item--regular">'+fmt(it.p)+'</span></div><div class="price__sale"><s class="price-item price-item--regular">'+fmt(it.w)+'</s> <span class="price-item price-item--sale price-item--last">'+fmt(it.p)+'</span></div></div></div></div></div>'
   +'<a href="/products/'+it.s+'/" class="tenisi-card-cta">Pídelo ya</a>'
