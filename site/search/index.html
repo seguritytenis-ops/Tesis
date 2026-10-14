@@ -3529,23 +3529,7 @@ html,body{overflow-x:hidden;max-width:100%}
               </button>
             </div>
           </form>
-        </main-search><div id="locres" class="page-width" style="margin-top:2rem"><p id="loccount" style="color:#666"></p><ul id="locgrid" class="grid product-grid" style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px"></ul></div>
-<script>(function(){
-var q=(new URLSearchParams(location.search).get('q')||'');
-function fmt(n){return '$'+Number(n||0).toLocaleString('es-CO');}
-function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
-fetch('/products/catalog.json').then(function(r){return r.json();}).then(function(cat){
-  var nq=norm(q);
-  var out=cat.filter(function(it){return !nq||norm(it.t+' '+it.s).indexOf(nq)>-1;}).slice(0,60);
-  document.getElementById('loccount').textContent=out.length+' resultados'+(q?' para "'+q+'"':'');
-  document.getElementById('locgrid').innerHTML=out.map(function(it){
-    return '<li><div class="card-wrapper product-card-wrapper"><div class="card card--standard card--media" style="--ratio-percent:100%"><div class="card__inner color-background-2 gradient ratio" style="--ratio-percent:100%"><div class="card__media"><a href="/products/'+it.s+ '/"><img src="'+it.img+'" alt="'+it.t+'" loading="lazy" style="width:100%"></a></div></div><div class="card__content"><a href="/products/'+it.s+'/">'+it.t+'</a><div><b>'+fmt(it.p)+'</b></div></div></div></div></li>';
-  }).join('');
-  var t=document.querySelector('.template-search');if(t)t.classList.remove('template-search--empty');
-  var inp=document.getElementById('Search-In-Template');if(inp&&q)inp.value=q;
-}).catch(function(){});
-})();
-</script></predictive-search></div></div></div>
+        </main-search></predictive-search></div></div></div>
 
 
 </section><section id="shopify-section-template--22017581678880__card_uniform_css" class="shopify-section section"><style data-shopify>.section-template--22017581678880__card_uniform_css-padding {
