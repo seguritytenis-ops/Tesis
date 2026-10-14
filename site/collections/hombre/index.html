@@ -1086,7 +1086,7 @@ html,body{overflow-x:hidden;max-width:100%}
 <div class="hb-ann-wrap"><div class="hb-announce" id="hbAnn" role="button" tabindex="0" aria-label="Ver la oferta: todo a $149.900">
   <span class="hb-ann-gift" aria-hidden="true">🎁</span>
   <span class="hb-ann-long">GRAN LIQUIDACIÓN DE SEPTIEMBRE ·</span>
-  <b class="hb-ann-price">TODO A $149.900</b>
+  <b class="hb-ann-price">DESDE $55.900</b>
   <span class="hb-ann-end">Termina en</span>
   <span class="hb-cd"><span id="hb-h">00</span><span id="hb-m">00</span><span id="hb-s">00</span></span>
 </div></div>
@@ -3254,7 +3254,7 @@ html,body{overflow-x:hidden;max-width:100%}
     <div class="rev">
       <h2 id="lq-h">¡Te llegó un regalo! 🎁</h2>
       <div class="sub">Gran liquidación de <span class="liq-m">este mes</span></div>
-      <div class="big">TODO A $149.900<small>Más del 50% OFF en ropa y zapatillas · Paga al recibir 🏠</small></div>
+      <div class="big">DESDE $55.900<small>Más del 50% OFF en ropa y zapatillas · Paga al recibir 🏠</small></div>
       <div>
         <div class="t">Esta sorpresa se acaba en:</div>
         <div class="clock" aria-live="off"><span id="lq-h2">24</span><span id="lq-m">00</span><span id="lq-s">00</span></div>
@@ -3310,7 +3310,7 @@ html,body{overflow-x:hidden;max-width:100%}
   var an=document.getElementById('hbAnn');if(an)an.style.cursor='pointer';
   paint();timer=setInterval(function(){if(!paint()&&isOpen)close()},1000);
   setTimeout(function loop(){var b=B();if(b&&b.classList.contains('active')&&!isOpen)confetti(b.querySelector('.lqb-gift'),16,64);setTimeout(loop,4200)},1260);
-  try{if(!sessionStorage.getItem('lq_seen'))setTimeout(open,1200)}catch(e){setTimeout(open,1200)}
+  try{if(!sessionStorage.getItem('lq_seen')&&location.pathname.indexOf('/search')!==0)setTimeout(open,1200)}catch(e){if(location.pathname.indexOf('/search')!==0)setTimeout(open,1200)}
 })();
 </script>
 
