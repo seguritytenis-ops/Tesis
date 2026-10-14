@@ -1734,10 +1734,10 @@ html,body{overflow-x:hidden;max-width:100%}
 .hb-cd-foot small{text-align:center;font-size:12px;color:var(--hb-ink-soft);font-family:'Outfit',sans-serif}
 </style>
 
-<div class="hb-ann-wrap"><div class="hb-announce" id="hbAnn" role="button" tabindex="0" aria-label="Ver la oferta: todo a $149.900">
+<div class="hb-ann-wrap"><div class="hb-announce" id="hbAnn" role="button" tabindex="0" aria-label="Ver la oferta: liquidacion desde $55.900">
   <span class="hb-ann-gift" aria-hidden="true">🎁</span>
   <span class="hb-ann-long">GRAN LIQUIDACIÓN DE SEPTIEMBRE ·</span>
-  <b class="hb-ann-price">TODO A $149.900</b>
+  <b class="hb-ann-price">DESDE $55.900</b>
   <span class="hb-ann-end">Termina en</span>
   <span class="hb-cd"><span id="hb-h">00</span><span id="hb-m">00</span><span id="hb-s">00</span></span>
 </div></div>
@@ -2099,7 +2099,7 @@ html,body{overflow-x:hidden;max-width:100%}
     <!-- GALLERY -->
     <div class="gallery">
       <div class="g-main">
-        <span class="g-flag">58% OFF</span>
+        <span class="g-flag">82% OFF</span>
         <div class="seal"><b>✓</b><span>Cambio<br>garantizado</span></div>
         <img id="main" src="//tenisi.co/cdn/shop/files/F0E7FDA8-C222-456A-855D-9FA2AE1F49DC.jpg?v=1776226883&width=900" alt="Nike Dunk x TENISI “Gold” — pago contra entrega en Colombia" width="900" height="900" fetchpriority="high" />
       </div>
@@ -2130,11 +2130,11 @@ html,body{overflow-x:hidden;max-width:100%}
       </div>
 
       <div class="price-box">
-        <span class="p-now"><span class=money>$149.900,00</span></span>
-        <span class="p-was"><span class=money>$359.800,00</span></span>
-        <span class="p-off">58% OFF</span>
+        <span class="p-now"><span class=money>$58.900,00</span></span>
+        <span class="p-was"><span class=money>$329.900,00</span></span>
+        <span class="p-off">82% OFF</span>
       </div>
-      <div class="p-save">Ahorras <span class=money>$209.900,00</span> hoy · HOT DAYS 50% OFF</div>
+      <div class="p-save">Ahorras <span class=money>$271.000,00</span> hoy
       <div class="urg-viewers" id="urgViewers"><span class="urg-dot"></span><span id="viewerCount">17</span> personas están viendo esto ahora</div>
 
       <div class="incl">
@@ -2806,8 +2806,8 @@ html,body{overflow-x:hidden;max-width:100%}
   WHATSAPP:'573169486100',
   PRODUCT:"Nike Dunk x TENISI “Gold”",
   PRICE:"$149.900,00",
-  PRICE_NUM:149900,
-  COMPARE_NUM:359800,
+  PRICE_NUM:58900,
+  COMPARE_NUM:329900,
   COD_BASE:"/products/nike-dunk-copia",
   CART_BASE:'/cart/',
   COLOR_OPT_IDX:1,
@@ -3411,7 +3411,7 @@ function submitCodOrder(){
   var lines=codLineas();
   if(!lines){showErr('La combinación elegida está agotada. Prueba otra talla o color.');return Promise.resolve({res:'stop'});}
   var val=function(id){var e=document.getElementById(id);return e?e.value:'';};
-  var body={mode:'cod',product:(typeof CONFIG!=='undefined'?CONFIG.PRODUCT:document.title.slice(0,60)),total:(typeof CONFIG!=='undefined'?CONFIG.PRICE_NUM:0),name:val('codName'),phone:val('codPhone'),addr:val('codAddr'),depto:val('codDept'),city:val('codCity'),
+  var body={mode:'cod',product:(typeof CONFIG!=='undefined'?CONFIG.PRODUCT:document.title.slice(0,60)),total:(typeof CONFIG!=='undefined'?CONFIG.PRICE_NUM:58900),name:val('codName'),phone:val('codPhone'),addr:val('codAddr'),depto:val('codDept'),city:val('codCity'),
     barrio:val('codBarrio'),lineas:lines,unidades:state.qty||1,website:val('codWebsite'),t0:COD_T0};
   var ctl=window.AbortController?new AbortController():null;
   var timer=setTimeout(function(){if(ctl)ctl.abort();},12000);
@@ -3712,7 +3712,7 @@ const sticky=document.getElementById('sticky'),anchor=document.getElementById('c
 if(anchor)new IntersectionObserver(es=>es.forEach(en=>sticky.classList.toggle('show',!en.isIntersecting)),{threshold:0}).observe(anchor);
 
 /* carrusel productos contra entrega (colección real generada en Liquid, auto-scroll) */
-const COD_PRODUCTS=[{"t":"SAMBA JANE","u":"/products/samba-jane","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/TOMA_LA_IMAGEN_202604160046.jpg?v=1776466817\u0026width=300"},{"t":"Zapatillas ALO Sunset","u":"/products/zapatillas-alo-sunset","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/8A1D8447-A953-4062-861F-1FFDCE334793.jpg?v=1781447204\u0026width=300"},{"t":"MiuMiu Plume","u":"/products/miumiu-x-new-balance-2","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/toma_la_primer_202604201738_1.jpg?v=1776725979\u0026width=300"},{"t":"Nike Dunk X Tenisi Osito Colores","u":"/products/nike-dunk-x-tenisi-osito-colores","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/toma_la_primer_202604200941_1.jpg?v=1776717353\u0026width=300"},{"t":"NIKE DUNK","u":"/products/nike-dunk","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/NIKEDUNK2.jpg?v=1775051867\u0026width=300"},{"t":"ADIDAS SAMBA OG","u":"/products/samba-tenis-calzado","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/dreamina-2026-03-11-3349-carousel____name___TenisiSoftWhite....jpg?v=1773266582\u0026width=300"},{"t":"Converse Chuck Taylor Chunky","u":"/products/converse-chuck-taylor-chunky-blue-pago-contra-entrega-y-envio-gratis","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/2EED31B7-4CE1-4674-B6D8-90F3104B0C0B.png?v=1776227493\u0026width=300"},{"t":"MiuMiu x New Balance","u":"/products/y35-new-balance-530-miu","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/MiuMiu_x_New_Balance_BEIGE.png?v=1774484268\u0026width=300"},{"t":"Nike P-6000 “Black”","u":"/products/nike-p-6000-black-zapatillas-retro-deportivas-con-estilo-y-envio-gratis-copia","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/toma_la_primer_202604201506_2ad01c2f-45bb-4ef2-8b8a-603824910d0c.jpg?v=1776715978\u0026width=300"},{"t":"VEJA “Old Money”","u":"/products/veja-old-money","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/22134883-7F81-46B1-8BBC-85FC7CA2BA2B.jpg?v=1776227330\u0026width=300"},{"t":"ON CLOUD HORIZON","u":"/products/on-cloud-horizon-tenis-calzado","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/Gemini_Generated_Image_qd7fygqd7fygqd7f.png?v=1773083599\u0026width=300"},{"t":"Adidas Adizero EVO SL Colores","u":"/products/adidas-adizero-evo-sl-colores","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/Gemini_Generated_Image_meibdkmeibdkmeib_27d2e88b-7398-434a-8d54-cac5b4d563a4.png?v=1776298089\u0026width=300"},{"t":"ASICS RUNNING","u":"/products/asics-cumulus-tenis-calzado","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/Gemini_Generated_Image_un8fh4un8fh4un8f.png?v=1776315242\u0026width=300"},{"t":"New Balance 9060 colores","u":"/products/new-balance-9060-colores","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/New_Balance_9060_Beige.png?v=1776469850\u0026width=300"},{"t":"Puma Park “White Gold”","u":"/products/puma-park-white-gold","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/3F7C62AE-4AF5-41A3-B7A9-7F4456AE71EE.jpg?v=1776226823\u0026width=300"},{"t":"Nike Metcon 6","u":"/products/tenis-nike-free-metcon-unisex-negro","p":"\u003cspan class=money\u003e$149.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/nike-free-metcon-6-training-gym-01.jpg?v=1773891348\u0026width=300"},];
+const COD_PRODUCTS=[{"t":"SAMBA JANE","u":"/products/samba-jane","p":"\u003cspan class=money\u003e$58.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/TOMA_LA_IMAGEN_202604160046.jpg?v=1776466817\u0026width=300"},{"t":"Zapatillas ALO Sunset","u":"/products/zapatillas-alo-sunset","p":"\u003cspan class=money\u003e$58.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/8A1D8447-A953-4062-861F-1FFDCE334793.jpg?v=1781447204\u0026width=300"},{"t":"MiuMiu Plume","u":"/products/miumiu-x-new-balance-2","p":"\u003cspan class=money\u003e$57.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/toma_la_primer_202604201738_1.jpg?v=1776725979\u0026width=300"},{"t":"Nike Dunk X Tenisi Osito Colores","u":"/products/nike-dunk-x-tenisi-osito-colores","p":"\u003cspan class=money\u003e$56.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/toma_la_primer_202604200941_1.jpg?v=1776717353\u0026width=300"},{"t":"NIKE DUNK","u":"/products/nike-dunk","p":"\u003cspan class=money\u003e$56.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/NIKEDUNK2.jpg?v=1775051867\u0026width=300"},{"t":"ADIDAS SAMBA OG","u":"/products/samba-tenis-calzado","p":"\u003cspan class=money\u003e$56.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/dreamina-2026-03-11-3349-carousel____name___TenisiSoftWhite....jpg?v=1773266582\u0026width=300"},{"t":"Converse Chuck Taylor Chunky","u":"/products/converse-chuck-taylor-chunky-blue-pago-contra-entrega-y-envio-gratis","p":"\u003cspan class=money\u003e$58.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/2EED31B7-4CE1-4674-B6D8-90F3104B0C0B.png?v=1776227493\u0026width=300"},{"t":"MiuMiu x New Balance","u":"/products/y35-new-balance-530-miu","p":"\u003cspan class=money\u003e$59.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/MiuMiu_x_New_Balance_BEIGE.png?v=1774484268\u0026width=300"},{"t":"Nike P-6000 “Black”","u":"/products/nike-p-6000-black-zapatillas-retro-deportivas-con-estilo-y-envio-gratis-copia","p":"\u003cspan class=money\u003e$57.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/toma_la_primer_202604201506_2ad01c2f-45bb-4ef2-8b8a-603824910d0c.jpg?v=1776715978\u0026width=300"},{"t":"VEJA “Old Money”","u":"/products/veja-old-money","p":"\u003cspan class=money\u003e$55.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/22134883-7F81-46B1-8BBC-85FC7CA2BA2B.jpg?v=1776227330\u0026width=300"},{"t":"ON CLOUD HORIZON","u":"/products/on-cloud-horizon-tenis-calzado","p":"\u003cspan class=money\u003e$55.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/Gemini_Generated_Image_qd7fygqd7fygqd7f.png?v=1773083599\u0026width=300"},{"t":"Adidas Adizero EVO SL Colores","u":"/products/adidas-adizero-evo-sl-colores","p":"\u003cspan class=money\u003e$59.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/Gemini_Generated_Image_meibdkmeibdkmeib_27d2e88b-7398-434a-8d54-cac5b4d563a4.png?v=1776298089\u0026width=300"},{"t":"ASICS RUNNING","u":"/products/asics-cumulus-tenis-calzado","p":"\u003cspan class=money\u003e$56.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/Gemini_Generated_Image_un8fh4un8fh4un8f.png?v=1776315242\u0026width=300"},{"t":"New Balance 9060 colores","u":"/products/new-balance-9060-colores","p":"\u003cspan class=money\u003e$59.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/New_Balance_9060_Beige.png?v=1776469850\u0026width=300"},{"t":"Puma Park “White Gold”","u":"/products/puma-park-white-gold","p":"\u003cspan class=money\u003e$56.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/3F7C62AE-4AF5-41A3-B7A9-7F4456AE71EE.jpg?v=1776226823\u0026width=300"},{"t":"Nike Metcon 6","u":"/products/tenis-nike-free-metcon-unisex-negro","p":"\u003cspan class=money\u003e$59.900,00\u003c\/span\u003e","img":"\/\/tenisi.co\/cdn\/shop\/files\/nike-free-metcon-6-training-gym-01.jpg?v=1773891348\u0026width=300"}];
 (function(){
   const wrap=document.querySelector('.marquee');
   const track=document.getElementById('mqTrack');
@@ -3768,7 +3768,7 @@ const COD_PRODUCTS=[{"t":"SAMBA JANE","u":"/products/samba-jane","p":"\u003cspan
     "@type":"Offer",
     "url":"/products/nike-dunk-copia",
     "priceCurrency":"COP",
-    "price":"149900",
+    "price":"58900",
     "availability":"https://schema.org/InStock",
     "seller":{"@type":"Organization","name":"Tenisí"},
     "shippingDetails":{
