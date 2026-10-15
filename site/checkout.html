@@ -250,6 +250,10 @@ body{margin:0;background:#FAF7F2;font-family:Arial}
 <script>
 var q=new URLSearchParams(location.search);
 var PN=q.get('p')||'Tenis premium', PP=parseInt(q.get('v')||'69900',10);
+var CART=[];
+try{var _c=localStorage.getItem('stepup_cart_v1');if(_c)CART=JSON.parse(_c).filter(function(x){return x.qty>0;});}catch(e){try{CART=(window.__MEMCART||[]).slice();}catch(e2){}}
+if(CART.length){var _t=0,_n=0;for(var _i=0;_i<CART.length;_i++){_t+=CART[_i].price*CART[_i].qty;_n+=CART[_i].qty;}
+PN=CART.map(function(x){return x.qty+'x '+x.title;}).join(', ').slice(0,80);PP=_t;}
 var WAS=Math.round(PP/0.35/100)*100;
 document.getElementById('coTitle').textContent=PN;
 document.getElementById('coName').textContent=PN;var _im=document.getElementById('coImg');if(_im&&!_im.getAttribute('src'))_im.style.display='none';

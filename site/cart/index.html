@@ -3430,3 +3430,60 @@ setInterval(updateTimer, 1000);
   document.head.appendChild(s);
 })();
 </script>
+<script>(function(){
+var KEY='stepup_cart_v1';
+function load(){try{var v=localStorage.getItem(KEY);if(v)return JSON.parse(v);}catch(e){}try{return (window.__MEMCART||[]).slice();}catch(e2){return[];}}
+function fmt(n){return '$'+Number(n||0).toLocaleString('es-CO');}
+function paint(){
+  var c=load().filter(function(x){return x.qty>0;});
+  var wrap=document.getElementById('main-cart-items');
+  var foot=document.getElementById('main-cart-footer');
+  var warn=document.querySelector('.cart__warnings');
+  var form=document.getElementById('cart');
+  if(!c.length){
+    if(wrap)wrap.style.display='none';if(foot)foot.style.display='none';
+    if(warn)warn.style.display='block';if(form)form.classList.add('is-empty');
+    return;
+  }
+  if(wrap)wrap.style.display='';if(foot)foot.style.display='';
+  if(warn)warn.style.display='none';if(form)form.classList.remove('is-empty');
+  var total=0,html='';
+  c.forEach(function(it){
+    total+=it.price*it.qty;
+    html+='<div class="cart-item" style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #eee">'
+    +'<img src="'+(it.img||'')+'" style="width:80px;height:80px;object-fit:cover;border-radius:10px">'
+    +'<div style="flex:1"><b>'+it.title+'</b><div style="color:#666;font-size:13px">'+(it.variant||'')+'</div>'
+    +'<div style="display:flex;gap:8px;align-items:center;margin-top:6px">'
+    +'<button data-a="dec" data-id="'+it.id+'" style="width:32px;height:32px;border-radius:8px;border:1px solid #ddd;background:#fff;font-size:18px">−</button>'
+    +'<b>'+it.qty+'</b>'
+    +'<button data-a="inc" data-id="'+it.id+'" style="width:32px;height:32px;border-radius:8px;border:1px solid #ddd;background:#fff;font-size:18px">+</button>'
+    +'<a href="#" data-a="rm" data-id="'+it.id+'" style="color:#c00;font-size:13px;margin-left:8px">Quitar</a></div></div>'
+    +'<div style="text-align:right"><b>'+fmt(it.price*it.qty)+'</b><div style="color:#999;font-size:12px">'+fmt(it.price)+' c/u</div></div></div>';
+  });
+  var jc=wrap?wrap.querySelector('.js-contents'):null;
+  if(jc)jc.innerHTML=html;
+  var tv=document.querySelector('.totals__total-value');
+  if(tv)tv.innerHTML='<span class=money>'+fmt(total)+'</span>';
+  var co=document.getElementById('checkout');
+  if(co){co.removeAttribute('disabled');co.onclick=function(e){e.preventDefault();location.href='/checkout/';};}
+  document.querySelectorAll('[data-a]').forEach(function(b){
+    if(b.dataset.wired)return;b.dataset.wired='1';
+    b.addEventListener('click',function(ev){
+      ev.preventDefault();
+      var id=this.dataset.id,a=this.dataset.a;
+      var cc=load();
+      for(var i=cc.length-1;i>=0;i--)if(String(cc[i].id)===String(id)){
+        if(a==='inc')cc[i].qty++;
+        if(a==='dec')cc[i].qty--;
+        if(a==='rm')cc[i].qty=0;
+        if(cc[i].qty<=0)cc.splice(i,1);
+      }
+      try{localStorage.setItem(KEY,JSON.stringify(cc));}catch(e){window.__MEMCART=cc;}
+      paint();
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded',paint);
+setTimeout(paint,1500);
+})();
+</script>
