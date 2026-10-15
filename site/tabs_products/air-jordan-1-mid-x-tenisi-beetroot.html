@@ -4102,8 +4102,8 @@ const COD_PRODUCTS=[{"t":"SAMBA JANE","u":"/products/samba-jane","p":"\u003cspan
 <script src="https://cdn.shopify.com/storefront/standard-actions.js" type="module" data-source-attribution="shopify.standard_actions"></script>
 <script>(function(){
 var KEY='stepup_cart_v1';
-function load(){try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return[];}}
-function save(c){try{localStorage.setItem(KEY,JSON.stringify(c));}catch(e){}}
+var MEM=[];function load(){try{var v=localStorage.getItem(KEY);if(v)return JSON.parse(v);}catch(e){}return MEM.slice();}
+function save(c){MEM=c.slice();try{localStorage.setItem(KEY,JSON.stringify(c));}catch(e){}}
 function toCents(p){return Math.round(Number(p||0)*100);}
 function build(){
   var items=load().map(function(it,i){

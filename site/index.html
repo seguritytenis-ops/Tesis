@@ -4772,7 +4772,7 @@ if(masModelos){
   var an=document.getElementById('hbAnn');if(an)an.style.cursor='pointer';
   paint();timer=setInterval(function(){if(!paint()&&isOpen)close()},1000);
   setTimeout(function loop(){var b=B();if(b&&b.classList.contains('active')&&!isOpen)confetti(b.querySelector('.lqb-gift'),16,64);setTimeout(loop,4200)},1260);
-  try{if(!sessionStorage.getItem('lq_seen')&&location.pathname.indexOf('/search')!==0)setTimeout(open,1200)}catch(e){if(location.pathname.indexOf('/search')!==0)setTimeout(open,1200)}
+  try{if(!sessionStorage.getItem('lq_seen')&&(location.pathname==='/'||location.pathname==='/index.html'))setTimeout(open,1200)}catch(e){if((location.pathname==='/'||location.pathname==='/index.html'))setTimeout(open,1200)}
 })();
 </script>
 <style>  </style>
@@ -4797,8 +4797,8 @@ document.addEventListener('click',function(ev){
 </script>
 <script>(function(){try{var m=new Date().toLocaleDateString("es-CO",{month:"long"});m=m.charAt(0).toUpperCase()+m.slice(1);document.querySelectorAll(".liq-m").forEach(function(e){e.textContent=m;});}catch(e){}})();</script><script>(function(){try{var m=new Date().toLocaleDateString("es-CO",{month:"long"});m=m.charAt(0).toUpperCase()+m.slice(1);document.querySelectorAll(".liq-m").forEach(function(e){e.textContent=m;});}catch(e){}})();</script><script>(function(){
 var KEY='stepup_cart_v1';
-function load(){try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return[];}}
-function save(c){try{localStorage.setItem(KEY,JSON.stringify(c));}catch(e){}}
+var MEM=[];function load(){try{var v=localStorage.getItem(KEY);if(v)return JSON.parse(v);}catch(e){}return MEM.slice();}
+function save(c){MEM=c.slice();try{localStorage.setItem(KEY,JSON.stringify(c));}catch(e){}}
 function toCents(p){return Math.round(Number(p||0)*100);}
 function build(){
   var items=load().map(function(it,i){

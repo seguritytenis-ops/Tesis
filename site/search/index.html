@@ -1843,14 +1843,14 @@ function card(it){
   +'<a href="/products/'+it.s+'/" class="tenisi-card-cta" style="background:#1A1A1A;color:#fff">Pídelo ya</a>'
   +'</div></div></li>';
 }
-fetch('/products/catalog.json').then(function(r){return r.json();}).then(function(cat){
+var failed=false;function nores(){document.getElementById('locskel').innerHTML='<p>😕 No pudimos cargar los tenis. Revisa tu conexión.</p><button onclick="location.reload()" style="background:#1A1A1A;color:#fff;border:none;padding:12px 24px;border-radius:10px;font-weight:800;cursor:pointer">Reintentar</button>';}fetch('/products/catalog.json').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(cat){
   var nq=norm(q);
   var out=cat.filter(function(it){return !nq||norm(it.t+' '+it.s).indexOf(nq)>-1;}).slice(0,60);
   document.getElementById('loccount').textContent=out.length+' resultados'+(q?' para "'+q+'"':'');
   var sk=document.getElementById('locskel');if(sk)sk.style.display='none';document.getElementById('locgrid').innerHTML=out.map(card).join('');
   var t=document.querySelector('.template-search');if(t)t.classList.remove('template-search--empty');
   var inp=document.getElementById('Search-In-Template');if(inp&&q)inp.value=q;
-}).catch(function(){});
+}).catch(function(){nores();});
 })();
 </script>
 
@@ -3693,7 +3693,7 @@ html,body{overflow-x:hidden;max-width:100%}
   var an=document.getElementById('hbAnn');if(an)an.style.cursor='pointer';
   paint();timer=setInterval(function(){if(!paint()&&isOpen)close()},1000);
   setTimeout(function loop(){var b=B();if(b&&b.classList.contains('active')&&!isOpen)confetti(b.querySelector('.lqb-gift'),16,64);setTimeout(loop,4200)},1260);
-  try{if(!sessionStorage.getItem('lq_seen')&&location.pathname.indexOf('/search')!==0)setTimeout(open,1200)}catch(e){if(location.pathname.indexOf('/search')!==0)setTimeout(open,1200)}
+  try{if(!sessionStorage.getItem('lq_seen')&&(location.pathname==='/'||location.pathname==='/index.html'))setTimeout(open,1200)}catch(e){if((location.pathname==='/'||location.pathname==='/index.html'))setTimeout(open,1200)}
 })();
 </script>
 
@@ -4316,7 +4316,7 @@ html,body{overflow-x:hidden;max-width:100%}
       var badge=getOrCreateNavBadge();
       if(badge){badge.textContent=cart.item_count;badge.style.display='flex';}
     }
-  }).catch(function(){});
+  }).catch(function(){nores();});
 })();
 
 /* ── countdown a medianoche ── */

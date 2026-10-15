@@ -4868,7 +4868,7 @@ html,body{overflow-x:hidden;max-width:100%}
   var an=document.getElementById('hbAnn');if(an)an.style.cursor='pointer';
   paint();timer=setInterval(function(){if(!paint()&&isOpen)close()},1000);
   setTimeout(function loop(){var b=B();if(b&&b.classList.contains('active')&&!isOpen)confetti(b.querySelector('.lqb-gift'),16,64);setTimeout(loop,4200)},1260);
-  try{if(!sessionStorage.getItem('lq_seen')&&location.pathname.indexOf('/search')!==0)setTimeout(open,1200)}catch(e){if(location.pathname.indexOf('/search')!==0)setTimeout(open,1200)}
+  try{if(!sessionStorage.getItem('lq_seen')&&(location.pathname==='/'||location.pathname==='/index.html'))setTimeout(open,1200)}catch(e){if((location.pathname==='/'||location.pathname==='/index.html'))setTimeout(open,1200)}
 })();
 </script>
 
