@@ -203,7 +203,7 @@ body{margin:0;background:#FAF7F2;font-family:Arial}
 .topbar a{color:#ffeb3b}
 .wrap{max-width:560px;margin:auto;padding:0 14px 60px}
 #maint-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:99;justify-content:center;align-items:center;padding:20px}
-</style></head><body>
+</style><style>.pay-bar{background:#1A1A1A!important;color:#fff!important}.pay-bar small{color:#ddd!important}.pay-bar-credit{background:#fff!important;color:#111!important;border:1.6px solid #ddd!important}.pay-bar-credit small{color:#555!important}.cod-modal-thumb[src=""]{display:none!important}</style></head><body>
 <div class="topbar">👟 STEPUP — <a href="/">seguir viendo</a></div>
 <div class="wrap" id="f">
 <h2 id="coTitle" style="margin:14px 0 4px"></h2>
@@ -252,7 +252,7 @@ var q=new URLSearchParams(location.search);
 var PN=q.get('p')||'Tenis premium', PP=parseInt(q.get('v')||'69900',10);
 var WAS=Math.round(PP/0.35/100)*100;
 document.getElementById('coTitle').textContent=PN;
-document.getElementById('coName').textContent=PN;
+document.getElementById('coName').textContent=PN;var _im=document.getElementById('coImg');if(_im&&!_im.getAttribute('src'))_im.style.display='none';
 document.getElementById('coSum').innerHTML='Precio: <b>$'+PP.toLocaleString()+'</b> <s style="color:#999">$'+WAS.toLocaleString()+'</s> · Envío $15.000 (gratis desde $200.000)';
 document.getElementById('codModalRecap').innerHTML='Talla <span id="rzT">38</span> · <b>$'+PP.toLocaleString()+'</b>';
 document.getElementById('coTalla').addEventListener('change',function(){document.getElementById('rzT').textContent=this.value;});
