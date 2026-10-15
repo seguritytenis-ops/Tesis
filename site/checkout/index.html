@@ -258,7 +258,8 @@ var WAS=Math.round(PP/0.35/100)*100;
 document.getElementById('coTitle').textContent=PN;
 document.getElementById('coName').textContent=PN;var _im=document.getElementById('coImg');if(_im&&!_im.getAttribute('src'))_im.style.display='none';
 document.getElementById('coSum').innerHTML='Precio: <b>$'+PP.toLocaleString()+'</b> <s style="color:#999">$'+WAS.toLocaleString()+'</s> · Envío $15.000 (gratis desde $200.000)';
-document.getElementById('codModalRecap').innerHTML='Talla <span id="rzT">38</span> · <b>$'+PP.toLocaleString()+'</b>';
+var _nn=(typeof _n!=='undefined'&&_n)?_n+' unidades · ':'1 unidad · Talla <span id="rzT">38</span> · ';
+document.getElementById('codModalRecap').innerHTML=_nn+'<b>$'+PP.toLocaleString()+'</b>';
 document.getElementById('coTalla').addEventListener('change',function(){document.getElementById('rzT').textContent=this.value;});
 document.getElementById('codPrepaidPrice').textContent='ahorras $'+Math.round(PP*0.05).toLocaleString();
 function g(id){var e=document.getElementById(id);return e?e.value:'';}
