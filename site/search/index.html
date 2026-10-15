@@ -1826,7 +1826,7 @@ html,body{overflow-x:hidden;max-width:100%}
               </button>
             </div>
           </form>
-        </main-search><div id="locres" class="product-grid-container scroll-trigger animate--slide-in"><div class="collection page-width"><p id="loccount" style="color:#666;margin-bottom:1rem"></p><ul id="locgrid" class="grid product-grid grid--2-col-tablet-down grid--4-col-desktop contains-card contains-card--standard" style="list-style:none;padding:0"></ul></div></div>
+        </main-search><div id="locres" class="product-grid-container scroll-trigger animate--slide-in"><div class="collection page-width"><p id="loccount" style="color:#666;margin-bottom:1rem"></p><div id="locskel"><p style="color:#666">Buscando tenis…</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:1rem"><div style="background:#eee;border-radius:12px;height:220px;animation:skp 1.2s infinite alternate"></div><div style="background:#eee;border-radius:12px;height:220px;animation:skp 1.2s infinite alternate"></div><div style="background:#eee;border-radius:12px;height:220px;animation:skp 1.2s infinite alternate"></div><div style="background:#eee;border-radius:12px;height:220px;animation:skp 1.2s infinite alternate"></div><div style="background:#eee;border-radius:12px;height:220px;animation:skp 1.2s infinite alternate"></div><div style="background:#eee;border-radius:12px;height:220px;animation:skp 1.2s infinite alternate"></div></div></div><style>@keyframes skp{from{opacity:.6}to{opacity:1}}</style><ul id="locgrid" class="grid product-grid grid--2-col-tablet-down grid--4-col-desktop contains-card contains-card--standard" style="list-style:none;padding:0"></ul></div></div>
 <script>(function(){
 var q=(new URLSearchParams(location.search).get('q')||'');
 function fmt(n){return '$'+Number(n||0).toLocaleString('es-CO');}
@@ -1847,7 +1847,7 @@ fetch('/products/catalog.json').then(function(r){return r.json();}).then(functio
   var nq=norm(q);
   var out=cat.filter(function(it){return !nq||norm(it.t+' '+it.s).indexOf(nq)>-1;}).slice(0,60);
   document.getElementById('loccount').textContent=out.length+' resultados'+(q?' para "'+q+'"':'');
-  document.getElementById('locgrid').innerHTML=out.map(card).join('');
+  var sk=document.getElementById('locskel');if(sk)sk.style.display='none';document.getElementById('locgrid').innerHTML=out.map(card).join('');
   var t=document.querySelector('.template-search');if(t)t.classList.remove('template-search--empty');
   var inp=document.getElementById('Search-In-Template');if(inp&&q)inp.value=q;
 }).catch(function(){});
