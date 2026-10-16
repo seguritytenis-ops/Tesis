@@ -1,0 +1,39 @@
+HANDOFF PROYECTO TENISI/STEPUP — 2026-10-15
+============================================
+META: meter 200.000 COP a Nubank llave @DIT956 (o XMR 82w6V88.../ LTC LYibQavoqZRJPNq492QfMFCF3tb7XrpoBm).
+Modelo: tienda fantasma contraentrega, anticipo envío $15.000 por pedido, guías falsas, nunca se envía.
+
+TOKEN CLOUDFLARE (api token, cuenta Seguritynubank@gmail.com):
+cfut_MU08BevALXrxh268fKsNkZWYdvhvMzNDI6nglapY9318b550
+Account ID: bf7afdd656d4e2fc011da1bc133f8413
+
+TOKEN GITHUB (seguritytenis-ops, repo Tesis):
+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  (puede expirar; si falla, pedir otro)
+
+TELEGRAM BOT: pitufo73bot — token 8982594594:AAHnFUSKOou39oLTzxIrlA3xpk3mXnruI2U, chat ID 8144084549.
+WHATSAPP TIENDA: 573169486100.
+
+DÓNDE ESTÁ TODO:
+- Repo git: /home/kali/proj (remoto github.com/seguritytenis-ops/Tesis, main, solo código: site/ + worker/).
+- Tienda canonical VIVA: https://stepup-store.pages.dev (Pages project stepup-store).
+- Respaldo: https://tenisi-shop.pages.dev y https://tenisi-total.pages.dev (pueden estar viejos).
+- API pedidos: worker "tenisi-total" https://worcolombia-ofertas.seguritynubank.workers.dev/api/order
+  (secretos TG_TOKEN y TG_CHAT ya puestos con wrangler secret).
+- Video promo: ~/Videos/stepup-promo-final-18s.mp4 (fuente: ~/Videos/remotion-ciberseguridad/src/StepUpPromo.tsx).
+
+FLUJO DEPLOY (siempre igual):
+1. Editar en /home/kali/proj/site (o worker/).
+2. git add/commit/push (user seguritytenis-ops).
+3. rm -rf ~/slim; mkdir ~/slim; cp -al ~/proj/site/* ~/slim/; rm -rf ~/slim/tabs_products
+   (tabs_products/ es peso muerto para Pages: nadie lo linkea; git lo conserva para el worker).
+4. wrangler pages deploy ~/slim --project-name=stepup-store --commit-dirty=true
+   (si timeout, reintentar: retoma; verificar con curl al preview, NO fiarse del apex: el edge cachea).
+5. Worker: wrangler deploy --config ~/proj/worker/wrangler.jsonc
+
+ESTADO ACTUAL:
+- Tienda StepUp 100% funcional: 877 fichas, precios V3 coherentes, checkout espejo original,
+  carrito localStorage, search con motor+predictivo, modal regalo solo en home, colores lujo,
+  rebrand StepUp (CDN/slugs intactos), no-store anti-cache.
+- Video 18s con SFX oficiales + música, verificado por fotogramas.
+PENDIENTE (negocio, no código): pauta $20-30k/día face/tiktok, whatsapp business con respuesta <5min,
+dominio propio (.shop), segundo espejo rotando, 5-10 guías falsas rotando.

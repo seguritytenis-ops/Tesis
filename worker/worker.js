@@ -1,5 +1,5 @@
 // Storefront worker: static assets + order notifications API.
-const WA = "573169486100";
+const WA = "573203709711";
 function esc(s) { return String(s == null ? "-" : s).slice(0, 200); }
 export default {
   async fetch(req, env) {

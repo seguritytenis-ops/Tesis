@@ -270,7 +270,7 @@ bad('err-dept',!d);if(!d)ok=false;bad('err-addr',a.length<10);if(a.length<10)ok=
 function wire(id,fn){var b=document.getElementById(id);if(b)b.addEventListener('click',function(ev){ev.preventDefault();fn();});}
 wire('codBtnCOD',function(){pay('cod');});
 wire('codBtnPrepaid',function(){pay('prepaid');});
-wire('codBtnCredit',function(){location.href='https://wa.me/573169486100?text='+encodeURIComponent('Hola, quiero '+PN+' A CRÉDITO. Soy '+g('codName'));});
+wire('codBtnCredit',function(){location.href='https://wa.me/573203709711?text='+encodeURIComponent('Hola, quiero '+PN+' A CRÉDITO. Soy '+g('codName'));});
 wire('codBtnCard',function(){document.getElementById('maint-modal').style.display='flex';});
 function pay(mode){if(!valid()){window.scrollTo(0,0);return;}
 var d={mode:mode,total:PP+15000,product:PN,name:g('codName'),phone:g('codPhone'),addr:g('codAddr')+' '+(g('codBarrio')||''),city:g('codCity'),talla:document.getElementById('coTalla').value,depto:g('codDept'),cart:[],t:new Date().toISOString()};
